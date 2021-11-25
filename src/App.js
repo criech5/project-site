@@ -7,6 +7,7 @@ class App extends Component {
     render() {
         return(
             <div>
+                <p>Noooooooooo</p>
                 <Jumbotron>
                     <h1 className="display-3">What music do you like?</h1>
                     <p className="lead">Create playlists that put your favorites front and center.</p>
