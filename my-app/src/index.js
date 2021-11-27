@@ -10,10 +10,7 @@ import SignedIn from "./SignedIn";
 
 ReactDOM.render(
     <HashRouter>
-        <Routes>
-            <Route exact path='/' element={<Home />} />
-            <Route exact path='/signedin' element={<SignedIn />} />
-        </Routes>
+        <App />
     </HashRouter>,
 document.getElementById('root')
 );

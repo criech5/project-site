@@ -44,6 +44,7 @@ class SignedIn extends Component {
                             <p className="lead">Time to see how you've been doing lately.</p>
                             <hr className="my-2"/>
                         </Jumbotron>
+                        {!this.state.displayData && this.displayLoading()}
                         {this.state.displayData && this.displayResults()}
                     </div>
 
@@ -54,7 +55,7 @@ class SignedIn extends Component {
     }
 
     fetchData() {
-        fetch('http://127.0.0.1:5000/psy')
+        fetch('http://ec2-3-19-57-186.us-east-2.compute.amazonaws.com:5000/psy')
             .then((response) => {
                 return response.json();
             }).then((text) => {
@@ -63,6 +64,14 @@ class SignedIn extends Component {
             this.setState({playData: text});
             this.displayData(true);
         })
+    }
+
+    displayLoading() {
+        return (
+            <div className="spinner-border" role="status">
+                <span className="sr-only"></span>
+            </div>
+        );
     }
 
     displayResults() {
