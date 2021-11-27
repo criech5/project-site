@@ -29,7 +29,7 @@ class Home extends Component {
                             <h1 className="display-3">What music do you like?</h1>
                             <p className="lead">Actually, don't answer that. Based on your last 50 listens, I already know.</p>
                             <hr className="my-2"/>
-                            <Button onClick={event => window.location.href=`https://accounts.spotify.com/authorize?client_id=136c245c7f744cf1844b2bb64aadbcb1&response_type=code&redirect_uri=http://127.0.0.1:5000/auth&scope=playlist-read-private%20playlist-modify-private%20playlist-modify-public%20user-read-recently-played%20user-top-read&show_dialog=true`}>
+                            <Button onClick={event => window.location.href=`https://accounts.spotify.com/authorize?client_id=136c245c7f744cf1844b2bb64aadbcb1&response_type=code&redirect_uri=ec2-3-19-57-186.us-east-2.compute.amazonaws.com:5000/auth&scope=playlist-read-private%20playlist-modify-private%20playlist-modify-public%20user-read-recently-played%20user-top-read&show_dialog=true`}>
                                 Login with Spotify to begin
                             </Button>
                         </Jumbotron>
