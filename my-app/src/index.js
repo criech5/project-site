@@ -9,14 +9,12 @@ import Home from "./Home";
 import SignedIn from "./SignedIn";
 
 ReactDOM.render(
-    <React.StrictMode>
     <HashRouter>
         <Routes>
             <Route exact path='/' element={<Home />} />
             <Route exact path='/signedin' element={<SignedIn />} />
         </Routes>
-    </HashRouter>
-    </React.StrictMode>,
+    </HashRouter>,
 document.getElementById('root')
 );
 
