@@ -7,7 +7,7 @@ import SignedIn from "./SignedIn";
 const Main = () => {
     return (
         <Routes>
-            <Route path='/' element={<SignedIn />} />
+            <Route path='/' element={<Main />} />
             <Route path='/signedin' element={<SignedIn />} />
         </Routes>
     );
