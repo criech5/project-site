@@ -55,7 +55,7 @@ class SignedIn extends Component {
     }
 
     fetchData() {
-        fetch('http://ec2-3-19-57-186.us-east-2.compute.amazonaws.com:5000/psy')
+        fetch('https://spotipsy.herokuapp.com/psy')
             .then((response) => {
                 return response.json();
             }).then((text) => {
