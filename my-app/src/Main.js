@@ -12,7 +12,7 @@ const Main = () => {
             {/*<Route path='/baseball' element={<LeagueLeader />} />*/}
             <Route path='/spotipsy' element={<SpotiPsyHome />} />
             <Route path='/spotipsy/signedin' element={<SignedIn />} />
-            <Route path='/yourdle' element={<Yourdle />} />
+            <Route path='/spotipsy/yourdle' element={<Yourdle />} />
         </Routes>
     );
 }
