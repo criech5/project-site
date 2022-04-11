@@ -5,7 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {BrowserRouter, HashRouter} from "react-router-dom";
 import {Route, Routes} from "react-router";
-import Home from "./Home";
+import SpotiPsyHome from "./SpotiPsyHome";
 import SignedIn from "./SignedIn";
 
 ReactDOM.render(
