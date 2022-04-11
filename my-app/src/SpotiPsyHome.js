@@ -26,7 +26,7 @@ class SpotiPsyHome extends Component {
                 <Col>
                     <div>
                         <Jumbotron>
-                            <h1 className="display-3">What music do you like?</h1>
+                            <h1 className="display-3">What music do you like to listen to??</h1>
                             <p className="lead">Actually, don't answer that. Based on your last 50 listens, I already know.</p>
                             <hr className="my-2"/>
                             <Button onClick={event => window.location.href=`https://accounts.spotify.com/authorize?client_id=136c245c7f744cf1844b2bb64aadbcb1&response_type=code&redirect_uri=https://spotipsy.herokuapp.com/auth&scope=playlist-read-private%20playlist-modify-private%20playlist-modify-public%20user-read-recently-played%20user-top-read&show_dialog=true`}>
