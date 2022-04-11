@@ -7,6 +7,8 @@ import {BrowserRouter, HashRouter} from "react-router-dom";
 import {Route, Routes} from "react-router";
 import SpotiPsyHome from "./SpotiPsyHome";
 import SignedIn from "./SignedIn";
+import Yourdle from "./Yourdle";
+
 
 ReactDOM.render(
     <HashRouter>
