@@ -2,7 +2,7 @@ import React, {Component, useState} from 'react';
 import ReactDOM from 'react-dom';
 import './yourdle.css';
 import text from './five_letter_words.js';
-import {Row, Col, Container} from 'reactstrap';
+import {Row, Col, Container, Button} from 'reactstrap';
 
 function Square(props) {
     let className = 'square-' + props.color;
@@ -108,42 +108,53 @@ class Game extends React.Component {
 
     onSubmit(solution) {
         this.setState({
+            word: '',
             colorScheme: Array(30).fill('white'),
-        });
-        console.log(this.state.colorScheme);
-        let word = '';
-        let finalWord = '';
-        let alphabet = this.defineAlphabet();
-        let corpus = this.loadCorpus();
-        let win = false;
-        let count = 0;
-        while (!win) {
-            count++;
-            let seed = (Math.random() * (corpus.length) ) << 0; // this isn't mine; 1527803 on SO
-            let results = this.guessWord(corpus[seed], solution, alphabet);
-            word = results[0];
-            let wordColor = this.state.colorScheme;
-            for (let i = 0; i < word.length; i++) {
-                if (word[i] === '*')
-                    wordColor[(5 * (count-1)) + i] = 'yellow';
-                else if (word[i] === '-')
-                    wordColor[(5 * (count-1)) + i] = 'grey';
-                else
-                    wordColor[(5 * (count-1)) + i] = 'green';
+        }, () => {
+            console.log(this.state.colorScheme);
+            let word = '';
+            solution = solution.toLowerCase();
+            let finalWord = '';
+            let alphabet = this.defineAlphabet();
+            let corpus = this.loadCorpus();
+            let win = false;
+            let count = 0;
+            while (!win) {
+                count++;
+                let seed = (Math.random() * (corpus.length) ) << 0; // this isn't mine; 1527803 on SO
+                let results = this.guessWord(corpus[seed], solution, alphabet);
+                word = results[0];
+                let wordColor = this.state.colorScheme;
+                for (let i = 0; i < word.length; i++) {
+                    if (word[i] === '*')
+                        wordColor[(5 * (count-1)) + i] = 'yellow';
+                    else if (word[i] === '-')
+                        wordColor[(5 * (count-1)) + i] = 'grey';
+                    else
+                        wordColor[(5 * (count-1)) + i] = 'green';
+                }
+                this.setState({
+                    colorScheme: wordColor,
+                });
+                finalWord = finalWord.concat(corpus[seed]);
+                alphabet = results[1];
+                if (word === solution) {
+                    win = true;
+                }
+                corpus = this.narrow(word, corpus, alphabet);
             }
+            console.log(count);
             this.setState({
-                colorScheme: wordColor,
+                word: finalWord,
             });
-            finalWord = finalWord.concat(corpus[seed]);
-            alphabet = results[1];
-            if (word === solution) {
-                win = true;
-            }
-            corpus = this.narrow(word, corpus, alphabet);
-        }
-        console.log(count);
+        });
+
+    }
+
+    reset() {
         this.setState({
-            word: finalWord,
+            word: '',
+            colorScheme: Array(30).fill('green'),
         });
     }
 
@@ -265,6 +276,10 @@ class Game extends React.Component {
                         <div>
                             <br/>
                             <InputForm onSubmit={this.onSubmit}/>
+                        </div>
+                        <div>
+                            <br/>
+                            <Button onClick={this.reset}>Reset</Button>
                         </div>
                     </div>
                     </div>

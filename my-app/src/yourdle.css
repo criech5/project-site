@@ -1,7 +1,7 @@
 body {
     font: 14px "Century Gothic", Futura, sans-serif;
     margin: 20px;
-    background-color: white;
+    background-color: slategrey;
 }
 
 ol, ul {
@@ -28,7 +28,7 @@ ol, ul {
     height: 100%;
     width: 20%;
     border-color: #afafaf;
-    border-width: 1px;
+    border-width: 3px;
     display: inline-flex;
     justify-content: center;
     align-items: center;
@@ -39,6 +39,7 @@ ol, ul {
     box-sizing: border-box;
     text-transform: uppercase;
     user-select: none;
+    background-color: white;
 }
 
 @keyframes yellow-animation {
