@@ -49,7 +49,7 @@ class SpotiPsyHome extends Component {
         fetch(`https://accounts.spotify.com/authorize?
       client_id=136c245c7f744cf1844b2bb64aadbcb1&
       response_type=code&
-      redirect_uri=https://spotipsy.herokuapp.com/&
+      redirect_uri=https://spotipsy.herokuapp.com/auth&
       scope=playlist-read-private%20playlist-modify-private%20playlist-modify-public
       %20user-read-recently-played%20user-top-read&
       show_dialog=true`).then(response => {

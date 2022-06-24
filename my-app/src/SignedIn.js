@@ -55,6 +55,7 @@ class SignedIn extends Component {
     }
 
     fetchData() {
+        // change this and other references to this to https://spotipsy.herokuapp.com/psy , etc.
         fetch('https://spotipsy.herokuapp.com/psy')
             .then((response) => {
                 return response.json();
