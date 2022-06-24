@@ -54,7 +54,7 @@ class SpotiPsyHome extends Component {
         this.setState({
             setToLoading: bool
         });
-        fetch('http://127.0.0.1:5000/automate/' + this.state.email)
+        fetch('https://spotipsy.herokuapp.com/automate/' + this.state.email)
             .then((response) => {
                 return response.text();
             }).then((text) => {
