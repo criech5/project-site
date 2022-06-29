@@ -1,5 +1,5 @@
 body {
-    font: 14px "Century Gothic", Futura, sans-serif;
+    font: 14px "Courier New", Futura, sans-serif;
     margin: 20px;
     background-color: slategrey;
 }
@@ -17,6 +17,7 @@ ol, ul {
 .board-row {
     width: 250px;
     height: 50px;
+    margin: auto;
 }
 
 
@@ -72,6 +73,7 @@ ol, ul {
     animation-name: yellow-animation;
     animation-duration: 1s;
     animation-fill-mode: forwards;
+    background-color: white;
     color: white;
 }
 
@@ -105,6 +107,7 @@ ol, ul {
     animation-name: grey-animation;
     animation-duration: 1s;
     animation-fill-mode: forwards;
+    background-color: white;
     color: white;
 }
 
@@ -138,6 +141,7 @@ ol, ul {
     animation-name: green-animation;
     animation-duration: 1s;
     animation-fill-mode: forwards;
+    background-color: white;
     color: white;
 }
 

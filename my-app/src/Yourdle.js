@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom';
 import './yourdle.css';
 import text from './five_letter_words.js';
 import {Row, Col, Container, Button} from 'reactstrap';
+import Navigation from "./Navigation";
+
 
 function Square(props) {
     let className = 'square-' + props.color;
@@ -104,6 +106,7 @@ class Game extends React.Component {
             colorScheme: Array(30).fill('white'),
         };
         this.onSubmit = this.onSubmit.bind(this);
+        this.reset = this.reset.bind(this);
     }
 
     onSubmit(solution) {
@@ -148,13 +151,12 @@ class Game extends React.Component {
                 word: finalWord,
             });
         });
-
     }
 
     reset() {
         this.setState({
             word: '',
-            colorScheme: Array(30).fill('green'),
+            colorScheme: Array(30).fill('white'),
         });
     }
 
@@ -261,12 +263,11 @@ class Game extends React.Component {
     render() {
         return (
             <div className="game">
-                <Col>
-                    <div style={{
-                        position: 'absolute', left: '50%', top: '50%',
-                        transform: 'translate(-50%, -50%)'
-                    }}>
-                    <h1>Yourdle</h1>
+                <Container>
+                    <Navigation />
+                    <Col></Col>
+                    <Col>
+                        <h1>Yourdle</h1>
                     <h5>You provide the word, we do the guessing.</h5>
                     <div className="game-board">
                         <Board word={this.state.word}
@@ -282,8 +283,9 @@ class Game extends React.Component {
                             <Button onClick={this.reset}>Reset</Button>
                         </div>
                     </div>
-                    </div>
                 </Col>
+                <Col></Col>
+                </Container>
             </div>
         );
     }
@@ -291,7 +293,7 @@ class Game extends React.Component {
 
 class Yourdle extends Component {
     render() {
-        return ( <Game />);
+        return (<Game />);
     }
 }
 

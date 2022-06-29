@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Button, Jumbotron, Col, Row, Container, Fade, Form, FormGroup, Label, Input} from 'reactstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css'
+import Navigation from "./Navigation";
 
 class SpotiPsyHome extends Component {
 
@@ -20,6 +21,7 @@ class SpotiPsyHome extends Component {
             <div>
                 <Col>
                     <div>
+                        <Navigation />
                         <Jumbotron>
                             <h1 className="display-3">What music do you like to listen to?</h1>
                             <p className="lead">Actually, don't answer that. Based on your last 50 listens, I already know.</p>
