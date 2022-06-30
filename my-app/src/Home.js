@@ -27,7 +27,7 @@ export default class Home extends Component {
                 <Button href="https://github.com/criech5/">My GitHub</Button>
                 <br />
                 <br />
-                <h4>View my other projects here!</h4>
+                <h4>View code for these projects and others here.</h4>
             </div>
         );
     }
