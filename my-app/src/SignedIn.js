@@ -5,6 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css'
 import {Link} from "react-router-dom";
 import { useState, useEffect } from 'react';
+import Navigation from "./Navigation";
 
 class SignedIn extends Component {
 
@@ -39,6 +40,7 @@ class SignedIn extends Component {
             <div>
                 <Col>
                     <div>
+                        <Navigation />
                         <Jumbotron>
                             <h1 className="display-3">Thanks for signing in.</h1>
                             <p className="lead">Time to see how you've been doing lately.</p>

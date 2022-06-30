@@ -5,7 +5,7 @@ import text from './five_letter_words.js';
 import {Row, Col, Container, Button} from 'reactstrap';
 import Navigation from "./Navigation";
 
-
+// function to contain the square objects that comprise the board
 function Square(props) {
     let className = 'square-' + props.color;
     let delayAmt = props.index * 0.5;
@@ -17,6 +17,7 @@ function Square(props) {
     );
 }
 
+// board that contains the squares
 class Board extends React.Component {
     renderSquare(i) {
         let cellColor = 'white'
@@ -78,35 +79,56 @@ class Board extends React.Component {
     }
 }
 
+// function to contain the word input form and its submission
+
 function InputForm(props) {
     const [word, setWord] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
         props.onSubmit(word);
+        clearInput();
+    }
+
+    const clearInput = () => {
+        setWord("");
+    }
+
+    const reset = () => {
+        clearInput();
+        props.reset();
     }
 
     return (
+        <div>
         <form onSubmit={handleSubmit}>
             <label>
-                <p>Enter your word: </p>
+                <p>{props.inputMessage}</p>
                 <input type="text"
                        value={word}
+                       className="wordInput"
+                       maxLength={5}            // will make for less user error
                        onChange={(e) => setWord(e.target.value)}/>
             </label>
         </form>
+        <br/>
+        <Button onClick={reset}>Reset</Button>
+        </div>
     )
 }
 
+// this class renders mostly everything, and it takes the word and performs the narrowing algorithm
 class Game extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             word: '',
             colorScheme: Array(30).fill('white'),
+            inputMessage: 'Enter your word: '
         };
         this.onSubmit = this.onSubmit.bind(this);
         this.reset = this.reset.bind(this);
+        InputForm = InputForm.bind(this);
     }
 
     onSubmit(solution) {
@@ -120,6 +142,13 @@ class Game extends React.Component {
             let finalWord = '';
             let alphabet = this.defineAlphabet();
             let corpus = this.loadCorpus();
+            if (!corpus.includes(solution)) {
+                this.setState({inputMessage: 'Invalid word, please try again'});
+                return;
+            }
+            else {
+                this.setState({inputMessage: 'Your word: ' + solution.toUpperCase()});
+            }
             let win = false;
             let count = 0;
             while (!win) {
@@ -157,6 +186,7 @@ class Game extends React.Component {
         this.setState({
             word: '',
             colorScheme: Array(30).fill('white'),
+            inputMessage: 'Enter your word: '
         });
     }
 
@@ -276,11 +306,7 @@ class Game extends React.Component {
                     <div className="game-info">
                         <div>
                             <br/>
-                            <InputForm onSubmit={this.onSubmit}/>
-                        </div>
-                        <div>
-                            <br/>
-                            <Button onClick={this.reset}>Reset</Button>
+                            <InputForm onSubmit={this.onSubmit} inputMessage={this.state.inputMessage} reset={this.reset}/>
                         </div>
                     </div>
                 </Col>
